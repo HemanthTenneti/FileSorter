@@ -1,2 +1,4 @@
-# FileSorter
-A python program to sort files
+# File Sorter
+# Program to sort files in a given folder
+## Python
+* You obviously need python.
