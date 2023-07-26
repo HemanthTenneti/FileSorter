@@ -1,41 +1,71 @@
 import shutil
 import os
 from time import sleep
+from fileExtensions import commonFileTypes
+import customtkinter as ctk
+from tkinter import filedialog
+from tkinter import messagebox
 
-a = input(r"Please input a directory path: ")[1:-1]
-parent_dir = a.replace("\\", "/")
+ctk.set_appearance_mode("dark")
+ctk.set_default_color_theme("dark-blue")
+window = ctk.CTk()
+window.geometry("240x190")
+window.title("File Sorter")
 
-if os.path.exists(parent_dir):
 
-    def CreateFolder():
-        global dir_list
-        dir_list = os.listdir(parent_dir)
-        for i in dir_list:
-            nameL = i.split(".")
-            if len(nameL) <= 1:
-                continue
-            else:
-                if (
-                    nameL[1]
-                    and os.path.exists(parent_dir + "/" + nameL[1] + "Files") == False
-                ):
-                    os.mkdir(parent_dir + "/" + nameL[1] + "Files")
+def createFolder(parent_dir):
+    global dir_list
+    dir_list = os.listdir(parent_dir)
+    for fileTypes in dir_list:
+        fileExt = fileTypes.split(".")[-1]
+        if (
+            fileExt.lower() in commonFileTypes
+            and os.path.exists(parent_dir + "/" + commonFileTypes[fileExt]) == False
+        ):
+            os.mkdir(parent_dir + "/" + commonFileTypes[fileExt])
 
-    def SortFiles():
-        global dir_list
-        dir_list = os.listdir(parent_dir)
-        for i in dir_list:
-            nameL = i.split(".")
-            if len(nameL) <= 1:
-                continue
-            else:
-                if nameL[1]:
-                    shutil.move(
-                        f"{parent_dir}/{i}", f"{parent_dir}/{nameL[1]}Files/{i}"
-                    )
 
-    CreateFolder()
-    sleep(0.5)
-    SortFiles()
-else:
-    print("Please give a proper directory")
+def sortFiles(parent_dir):
+    for fileTypes in dir_list:
+        fileExt = fileTypes.split(".")[-1]
+        if fileExt.lower() in commonFileTypes:
+            shutil.move(
+                f"{parent_dir}/{fileTypes}",
+                f"{parent_dir}/{commonFileTypes[fileExt]}/{fileTypes}",
+            )
+
+
+def sortButton():
+    if directory not in [None, ""]:
+        createFolder(directory)
+        sleep(0.5)
+        sortFiles(directory)
+        messagebox.showinfo(
+            "Finished sorting", "The files in your chosen directory have been sorted"
+        )
+    else:
+        messagebox.showwarning(
+            "Something's wrong",
+            "I can feel it. It was an error, you didn't specify a path.",
+        )
+
+
+directory = None
+
+
+def directorySelectButton():
+    global directory
+    directory = filedialog.askdirectory(title="Select a directory")
+
+
+dirButton = ctk.CTkButton(
+    master=window, command=lambda: directorySelectButton(), text="Choose directory"
+)
+sortFilesButton = ctk.CTkButton(
+    master=window, command=lambda: sortButton(), text="Sort the files"
+)
+dirButton.pack(pady=30, padx=10)
+sortFilesButton.pack(pady=30, padx=20)
+
+
+window.mainloop()
