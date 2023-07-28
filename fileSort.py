@@ -11,6 +11,7 @@ ctk.set_default_color_theme("dark-blue")
 window = ctk.CTk()
 window.geometry("240x190")
 window.title("File Sorter")
+window.resizable(False, False)
 
 
 def createFolder(parent_dir):
