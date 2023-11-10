@@ -1,10 +1,11 @@
 import shutil
 import os
 from time import sleep
-from fileExtensions import commonFileTypes
 import customtkinter as ctk
+from fileExtensions import commonFileTypes
 from tkinter import filedialog
 from tkinter import messagebox
+
 
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("dark-blue")
@@ -18,7 +19,7 @@ def createFolder(parent_dir):
     global dir_list
     dir_list = os.listdir(parent_dir)
     for fileTypes in dir_list:
-        fileExt = fileTypes.split(".")[-1]
+        fileExt = fileTypes.split(".")[-1].lower()
         if (
             fileExt.lower() in commonFileTypes
             and os.path.exists(parent_dir + "/" + commonFileTypes[fileExt]) == False
@@ -28,7 +29,7 @@ def createFolder(parent_dir):
 
 def sortFiles(parent_dir):
     for fileTypes in dir_list:
-        fileExt = fileTypes.split(".")[-1]
+        fileExt = fileTypes.split(".")[-1].lower()
         if fileExt.lower() in commonFileTypes:
             shutil.move(
                 f"{parent_dir}/{fileTypes}",
@@ -47,7 +48,7 @@ def sortButton():
     else:
         messagebox.showwarning(
             "Something's wrong",
-            "I can feel it. It was an error, you didn't specify a path.",
+            "I can feel it. It was an error, you didn't specify a path",
         )
 
 
