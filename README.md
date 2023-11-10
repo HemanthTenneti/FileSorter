@@ -1,5 +1,5 @@
 # File Sorter
-Getting more comfortable with Python, I decided to take upon a task that would take a lot of understanding of the language to execute it into existence. I chose a file sorter then as a way of streamlining the process of organizing my files easier on my desktop, I went further with it, designing a very very minimal user interface that did the job.
+Getting more comfortable with Python, I decided to take upon a task that would take a lot of understanding of the language to execute it into existence. I chose a file sorter then as a way of streamlining the process of organizing my files easier on my desktop, I went further with it, designing a very minimal user interface that did the job.
 
 
 ## How It Works
