@@ -12,6 +12,7 @@ commonFileTypes = {
     "eps": "Images",
     "ai": "Images",
     "psd": "Images",
+    "heic": "Images", #Added heic
     "jfif": "Images",  # Added jfif
     "exe": "Executable Files",
     "msi": "Executable Files",
