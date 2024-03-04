@@ -10,8 +10,6 @@ commonFileTypes = {
     "tif": "Images",
     "tiff": "Images",
     "eps": "Images",
-    "ai": "Images",
-    "psd": "Images",
     "heic": "Images", #Added heic
     "jfif": "Images",  # Added jfif
     "exe": "Executable Files",
@@ -20,6 +18,9 @@ commonFileTypes = {
     "cmd": "Executable Files",
     "ps1": "Executable Files",
     "vbs": "Executable Files",
+    "msix": "Executable Files", #Added msix
+    "appinstaller": "Executable Files", #Added appinstaller
+    "jar": "Executable Files", #Added jar
     "dll": "Dynamic Link Library Files",
     "sys": "System Files",
     "ttf": "Fonts",
@@ -94,4 +95,16 @@ commonFileTypes = {
     "ipynb": "Notebook Files",  # Added ipynb
     "java": "Java Files",  # Added java
     "class": "Java Class Files",  # Added class
+    "aex": "Adobe Files", #Added aex
+    "abr": "Adobe Files", #Added abr
+    "mogrt": "Adobe Files", #Added mogrt
+    "psd": "Adobe Files", #Added psd
+    "ai": "Adobe Files", #Added ai
+    "prproj": "Adobe Files", #Added prproj
+    "aep": "Adobe Files", #Added aep
+    "fbx": "3D Files", #Added fbx
+    "blend": "3D Files", #Added blend
+    "obj": "3D Files", #Added obj
+    "amf": "3D Files", #Added amf
+    "iges": "3D Files", #Added iges
 }
