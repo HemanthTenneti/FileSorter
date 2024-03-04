@@ -12,6 +12,7 @@ commonFileTypes = {
     "eps": "Images",
     "ai": "Images",
     "psd": "Images",
+    "jfif": "Images",  # Added jfif
     "exe": "Executable Files",
     "msi": "Executable Files",
     "bat": "Executable Files",
@@ -52,6 +53,7 @@ commonFileTypes = {
     "avi": "Video Files",
     "wmv": "Video Files",
     "mov": "Video Files",
+    "webm": "Video Files",  # Added webm
     "mpg": "Video Files",
     "mpeg": "Video Files",
     "lnk": "Shortcut Files",
@@ -88,4 +90,7 @@ commonFileTypes = {
     "ics": "Calendar",
     "bak": "Backup Files",
     "tmp": "Temporary Files",
+    "ipynb": "Notebook Files",  # Added ipynb
+    "java": "Java Files",  # Added java
+    "class": "Java Class Files",  # Added class
 }
