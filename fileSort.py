@@ -5,11 +5,18 @@ import customtkinter as ctk
 from fileExtensions import commonFileTypes
 from tkinter import filedialog
 from tkinter import messagebox
+import argparse
+
+# Parsing the CLI arguments
+def parse_arguments():
+    parser = argparse.ArgumentParser(description='File Sorter')
+    parser.add_argument('directory', nargs='?', default=None, help='The directory to sort')
+    return parser.parse_args()
 
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("dark-blue")
 window = ctk.CTk()
-window.geometry("240x240")  # Increased the height to accommodate additional buttons
+window.geometry("240x240")
 window.title("File Sorter")
 window.resizable(False, False)
 
@@ -39,7 +46,6 @@ def sortFiles(parent_dir):
                     f"{parent_dir}/{commonFileTypes[fileExt]}/{fileTypes}",
                 )
             else:
-            # Move files with unknown extensions to the 'Others' folder
                 shutil.move(
                     f"{parent_dir}/{fileTypes}",
                     f"{parent_dir}/Others/{fileTypes}",
@@ -127,27 +133,32 @@ def showExtensionStatistics():
     else:
         messagebox.showwarning("Error", "Please select a directory first.")
 
-def moveSpecificFile():
-    if directory not in [None, ""]:
-        file_extension = filedialog.askstring("Enter File Extension", "Enter the file extension (e.g., jpg):")
-        destination_folder = filedialog.askstring("Enter Destination Folder", "Enter the destination folder:")
-        moveSpecificFileType(directory, file_extension, destination_folder)
-        messagebox.showinfo("Move File", f"Files with {file_extension} extension moved to {destination_folder}")
-    else:
-        messagebox.showwarning("Error", "Please select a directory first.")
-
 dirButton = ctk.CTkButton(master=window, command=directorySelectButton, text="Choose directory", width=20)
 sortFilesButton = ctk.CTkButton(master=window, command=sortButton, text="Sort the files", width=20)
 explorerButton = ctk.CTkButton(master=window, command=lambda: exploreFolder(directory), text="Open Folder", width=20)
 fileCountsButton = ctk.CTkButton(master=window, command=showFileCounts, text="Show File Counts", width=20)
 extensionStatsButton = ctk.CTkButton(master=window, command=showExtensionStatistics, text="Show Extension Statistics", width=20)
-moveFileButton = ctk.CTkButton(master=window, command=moveSpecificFile, text="Move Specific File", width=20)
 
 dirButton.pack(pady=10, padx=15)
 sortFilesButton.pack(pady=10, padx=15)
 explorerButton.pack(pady=10, padx=15)
 fileCountsButton.pack(pady=10, padx=15)
 extensionStatsButton.pack(pady=10, padx=15)
-moveFileButton.pack(pady=10, padx=15)
 
-window.mainloop()
+def main():
+    global directory
+    args = parse_arguments()
+    if args.directory:
+        directory = args.directory
+        createFolder(directory)
+        sleep(0.5)
+        sortFiles(directory)
+        deleteEmptyFolders(directory)
+        print("Files sorted successfully.")
+    else:
+        # Use CWD as default if not provided
+        directory = os.getcwd()
+        window.mainloop()
+
+if __name__ == "__main__":
+    main()

@@ -10,17 +10,17 @@ commonFileTypes = {
     "tif": "Images",
     "tiff": "Images",
     "eps": "Images",
-    "heic": "Images", #Added heic
-    "jfif": "Images",  # Added jfif
+    "heic": "Images",
+    "jfif": "Images", 
     "exe": "Executable Files",
     "msi": "Executable Files",
     "bat": "Executable Files",
     "cmd": "Executable Files",
     "ps1": "Executable Files",
     "vbs": "Executable Files",
-    "msix": "Executable Files", #Added msix
-    "appinstaller": "Executable Files", #Added appinstaller
-    "jar": "Executable Files", #Added jar
+    "msix": "Executable Files",
+    "appinstaller": "Executable Files",
+    "jar": "Executable Files",
     "dll": "Dynamic Link Library Files",
     "sys": "System Files",
     "ttf": "Fonts",
@@ -55,7 +55,7 @@ commonFileTypes = {
     "avi": "Video Files",
     "wmv": "Video Files",
     "mov": "Video Files",
-    "webm": "Video Files",  # Added webm
+    "webm": "Video Files",
     "mpg": "Video Files",
     "mpeg": "Video Files",
     "lnk": "Shortcut Files",
@@ -79,6 +79,8 @@ commonFileTypes = {
     "bat": "Scripts",
     "ps1": "Scripts",
     "sh": "Scripts",
+    "c": "Scripts",
+    "cpp": "Scripts",
     "sql": "Database Files",
     "db": "Database Files",
     "mdb": "Database Files",
@@ -92,19 +94,19 @@ commonFileTypes = {
     "ics": "Calendar",
     "bak": "Backup Files",
     "tmp": "Temporary Files",
-    "ipynb": "Notebook Files",  # Added ipynb
-    "java": "Java Files",  # Added java
-    "class": "Java Class Files",  # Added class
-    "aex": "Adobe Files", #Added aex
-    "abr": "Adobe Files", #Added abr
-    "mogrt": "Adobe Files", #Added mogrt
-    "psd": "Adobe Files", #Added psd
-    "ai": "Adobe Files", #Added ai
-    "prproj": "Adobe Files", #Added prproj
-    "aep": "Adobe Files", #Added aep
-    "fbx": "3D Files", #Added fbx
-    "blend": "3D Files", #Added blend
-    "obj": "3D Files", #Added obj
-    "amf": "3D Files", #Added amf
-    "iges": "3D Files", #Added iges
+    "ipynb": "Notebook Files", 
+    "java": "Java Files",  
+    "class": "Java Class Files",   
+    "aex": "Adobe Files",
+    "abr": "Adobe Files",
+    "mogrt": "Adobe Files", 
+    "psd": "Adobe Files",
+    "ai": "Adobe Files",
+    "prproj": "Adobe Files", 
+    "aep": "Adobe Files",
+    "fbx": "3D Files",
+    "blend": "3D Files", 
+    "obj": "3D Files",
+    "amf": "3D Files",
+    "iges": "3D Files", 
 }

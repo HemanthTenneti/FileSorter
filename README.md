@@ -10,6 +10,33 @@ Getting more comfortable with Python, I decided to take upon a task that would t
 - And it proceeds to create folders for each depending on the map of the file extensions.
 - Assuming the program has permission to move items in the given location, it will proceed to move the files to their designated folder.
 
+## Latest Add
+- Added the functionality to call it through command-line
+- You can call it either through:
+```
+python "Path/To/PythonFile" "Path/To/Directory/To/Be/Sorted"
+eg. python "C:/Users/test/FileSorter/fileSort.py" "C:/Users/test/Downloads"
+```
+- Or alternatively, with a slight setup process, you can run "FileSort" in any powershell terminal and it'll sort the CWD.
+
+## Setup for FileSort PWSH Function
+- 1. Create a fileSort.ps1 script in any folder with contents:
+```
+$cwd = Get-Location
+python "Path/To/PyFile" $cwd
+```
+- 2. Open Powershell, type the command `notepad $PROFILE`
+- 3. Add a function to the profile:
+```
+function fileSort {
+    # Path to the recently created fileSort.ps1 script
+    $scriptPath = "Path/To/fileSort.ps1/Script"
+    
+    & $scriptPath
+}
+```
+- 4. After the setup, you can open powershell in any folder and run the command "FileSort" with which, it's going to sort all the files in the working directory
+
 ## Requirements
 
 - As the file was compiled into an executable which can be found in the Releases section, there are no requirements for it to be ran.
@@ -41,7 +68,7 @@ Getting more comfortable with Python, I decided to take upon a task that would t
 - **Virtual Hard Disk Files:** `.vhd`
 - **Data:** `.csv, .json, .xml`
 - **Web Files:** `.html, .htm, .js, .php, .asp`
-- **Scripts:** `.py, .bat, .ps1, .sh`
+- **Scripts:** `.py, .bat, .ps1, .sh, .c, .cpp`
 - **Database Files:** `.sql, .db, .mdb, .accdb`
 - **Spreadsheets:** `.csv, .xml, .xlr`
 - **Emails:** `.msg, .eml`
