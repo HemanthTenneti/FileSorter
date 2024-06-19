@@ -20,19 +20,12 @@ eg. python "C:/Users/test/FileSorter/fileSort.py" "C:/Users/test/Downloads"
 - Or alternatively, with a slight setup process, you can run "FileSort" in any powershell terminal and it'll sort the CWD.
 
 ## Setup for FileSort PWSH Function
-- 1. Create a fileSort.ps1 script in any folder with contents:
-```
-$cwd = Get-Location
-python "Path/To/PyFile" $cwd
-```
 - 2. Open Powershell, type the command `notepad $PROFILE`
 - 3. Add a function to the profile:
 ```
 function fileSort {
-    # Path to the recently created fileSort.ps1 script
-    $scriptPath = "Path/To/fileSort.ps1/Script"
-    
-    & $scriptPath
+    $cwd = Get-Location
+    python "Path/To/PyFile" $cwd # Change Path/To/PyFile with location where the python file is saved.
 }
 ```
 - 4. After the setup, you can open powershell in any folder and run the command "FileSort" with which, it's going to sort all the files in the working directory
